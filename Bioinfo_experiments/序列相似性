@@ -1,0 +1,56 @@
+#序列相似性的比对和搜索
+
+一、实验目的
+1．能够熟练使用NCBI网站的BLAST系列工具，通过NCBI中的BLAST功能，对所提供的基因组序列或蛋白质序列进行相似性比对，找到在GenBank中与之相似的序列，
+推测所比对序列的功能。
+2．能够熟练掌握用Clustalx软件进行双序列和多序列比对。
+3．学会使用EMBL上的Clustalw工具进行比对。
+
+二、实验内容及操作步骤
+（一）BLAST的使用
+1．Blastn：进入NCBI主页下载关于AY125911、AF513548、AF525146、AF492473、AY497910、AY497911等核酸序列或其它你感兴趣的核酸序列（Fasta格式）。
+
+2．Blastp：进入NCBI主页下载某一蛋白质序列(Fasta格式)，如cytochrome oxidase, peroxidase, SOD (Superoxide Dimutase)。
+1)	选择Protein→Protein-protein BLAST (blastp)进行蛋白质相似性数据库搜索；
+2)	在search对话框中粘贴入下载的蛋白质序列(Fasta格式)；
+3)	调整各参数值，直到获得最佳比对；
+4)	点击BLAST!按键进行比对；
+5)	点击Format!对结果进行格式化，可自行设计结果的显示方式；
+6)	查看比对结果，看在数据库中找到的序列与你的序列是否相似或相同。
+
+3．Bl2seq：进入NCBI主页下载某两条核酸或蛋白质序列(Fasta格式)
+1)	进入http://www.ncbi.nih.gov/BLAST/；
+2)	点击Special目录下的Align two sequences (bl2seq)；
+3)	将两条序列分别输入Sequence 1和Sequence 1区域；
+4)	点Align进行比对；
+5)	根据结果查看bl2seq是否允许插入空位。
+
+4．EMBL-BLAST
+1)	进入http://www.ebi.ac.uk/；
+2)	点击ToolBox下的Blast2 - NCBI；
+3)	自行练习EMBL-BLAST，并比较与NCBI上的BLAST有何区别。
+
+（二）Clustalx软件和在线Clustalw的使用
+1．使用Clustalx软件进行双序列比对：
+在NCBI中，搜索H5N1或任何你感兴趣的核酸或蛋白序列，选中两条序列，并一起存为FASTA文件，文件名为newname.fasta, 文件内容例如：
+
+>xxxx
+ATTTCGGGTGCTCGATGCTAGG
+>xxxxx
+ATATTATCATAGAGGGATACCCCCTGGGG
+
+1)	点击软件的File→Load Sequences，加载保存的fasta文件；
+2)	点击Alignment→Do Alignment，进行默认参数的双序列比对；
+3)	将比对后的文件存到指定的目录，并用记事本打开并查看你保存的文件；
+4)	点击Alignment→Alignment Parameters→Pairwise Alignment Parameters，设置各个参数，再进行第3步看结果有何不同；
+5)	点击Alignment→Output Format Options，将存储的文件格式进行修改（默认为xxx.aln），执行3、4步骤，看不同文件格式的文件内容有何不同。
+
+2．使用EMBL的Clustalw工具进行多序列比对：
+在NCBI中下载三条或三条以上核酸或蛋白质序列（Fasta格式）。
+
+1)	进入EMBL主页：http://www.ebi.ac.uk/；
+2)	点击Services, 点击ToolBox→Sequence Analysis→ClustalW；
+3)	在对话框中输入下载的核酸或蛋白序列，点击Run进行默认参数的比对；
+4)	点击查看Results of search下的内容；
+5)	进入3步骤所在页面，修改Clustalw中的各参数并重复4步骤，看比对结果有何不同；
+6)	进入3步骤所在页面，在 YOUR EMAIL中输入你的E-mail，并在RESULTS选择E-mail，查看邮箱中的结果。

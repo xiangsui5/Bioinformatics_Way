@@ -1,0 +1,89 @@
+#蛋白质序列分析与结构预测
+
+一、实验目的
+1．能够熟练使用ExPASy进行蛋白质理化性质分析。 
+2．学会使用nnPredict进行蛋白质二级结构预测。
+3．学会使用SWISS-MODEL服务器进行蛋白质三级结构预测，并会使用Swiss-PdbViewer和ViewerLite进行浏览分析
+
+二、实验内容及操作步骤
+（一）蛋白质理化性质分析
+从蛋白质序列出发，可以预测出蛋白质的许多物理性质，包括氨基酸成分、原子成分、等电点、消光系数等。
+1)	进入http://www.expasy.org/tools/ (这个地址为蛋白质组分析工具汇总，学生自已浏览各工具的具体功能)；
+2)	选择Primary structure analysis→ProtParam程序； 
+3)	进入http://www.expasy.org/sprot/下载蛋白序列，并存为FASTA格式；
+4)	在对话框中输入蛋白质序列（注意：不是FASTA格式，而是原始序列）；
+5)	点击Computer parameters进行分析；
+6)	记录并分析结果。
+
+
+自行练习：
+从蛋白质序列出发，可以预测出蛋白质的许多物理性质，包括等电点、分子量、酶切特性、疏水性、电荷分布等。相关工具有：
+Compute pI/MW：是ExPASy工具包中的程序，计算蛋白质的等电点和分子量。对于碱性蛋白质，计算出的等电点可能不准确。
+PeptideMass：是ExPASy工具包中的程序，分析蛋白质在各种蛋白酶和化学试剂处理后的内切产物。蛋白酶和化学试剂包括胰蛋白酶、糜蛋白酶、LysC、溴化氰、
+ArgC、AspN和GluC等。
+TGREASE：是FASTA工具包（ftp://ftp.virginia.edu/pub/fasta/）中的程序，分析蛋白质序列的疏水性。这个程序延序列计算每个残基位点的移动平均疏水性
+，并给出疏水性-序列曲线，用这个程序可以发现膜蛋白的跨膜区和高疏水性区的明显相关性。
+SAPS：蛋白质序列统计分析（http://www.isrec.isb-sib.ch/software/SAPS_form.html），对提交的序列给出大量全面的分析资料，包括氨基酸组成统计、
+电荷分布分析、电荷聚集区域、高度疏水区域、跨膜区段等等。
+
+（二）蛋白质二级结构预测
+二级结构是指α螺旋和β折迭等规则的蛋白质局部结构组件。不同的氨基酸残基对于形成不同的二级结构组件具有不同的倾向性。按蛋白质中二级结构的成分可以
+把球形蛋白分为全α蛋白、全β蛋白、α＋β蛋白和α/β蛋白等四个折迭类型。预测蛋白质二级结构的算法大多以已知三维结构和二级结构的蛋白质为依据，用过人工
+神经网络、遗传算法等技术构建预测方法。还有将多种预测方法结合起来，获得“一致序列”。总的来说，二级结构预测仍是未能完全解决的问题，一般对于α螺旋
+预测精度较好，对β折迭差些，而对除α螺旋和β折迭等之外的无规则二级结构则效果很差。
+nnPredict：用神经网络方法预测二级结构，蛋白质结构类型分为全α蛋白、全β蛋白和α/β蛋白，输出结果包括“H”(螺旋)、“E”(折迭)和“-”(转角)。这个方法对
+全α蛋白能达到79%的准确率。（http://www.cmpharm.ucsf.edu/~nomi/nnpredict.html）
+ 
+
+自行练习：
+SOPMA：带比对的自优化预测方法，将几种独立二级结构预测方法汇集成“一致预测结果”，采用的二级结构预测方法包括GOR方法、Levin同源预测方法、双重预
+测方法、PHD方法和SOPMA方法。多种方法的综合应用平均效果比单个方法更好。（http://pbil.ibcp.fr/）
+PredictProtein：提供了序列搜索和结构预测服务。它先在SWISS-PROT中搜索相似序列，用MaxHom算法构建多序列比对的profile，再在数据库中搜索相似的
+profile，然后用一套PHD程序来预测相应的结构特征，包括二级结构。返回结果包含大量预测过程中产生的信息，还包含每个残基位点的预测可信度。该方法的
+平均预测准确率达72%。（http://cubic.bioc.columbia.edu/predictprotein/或http://www.cbi.pku.edu.cn/predictprotein/）
+JPred：
+1)	进入JPred http://www.compbio.dundee.ac.uk/~www-jpred/；
+2)	点击Prediction(Submit a protein sequence for secondary structure prediction)；
+3)	选择Email结果提交方式（建议）或留空为网页结果显示；
+4)	输入蛋白质序列（原始序列）；
+5)	选择File format的三个参数，分别为：原始序列格式，多重序列比对格式，BLC格式，本实验只选Raw protein sequence，其余参数同学们自行练习；
+6)	点击Run提交；
+7)	在邮箱中找到结果地址，并在弹出的结果显示界面选择第3项（Your results in HTML can be found here）、第4项（A simple display of your 
+query sequence and the prediction can be found here）进行简单结果浏览、第5项（Postscript output can be found here）进行图形化输出；
+8)	记录并分析结果。
+
+（三）蛋白质三级结构预测
+蛋白质三维结构预测时最复杂和最困难的预测技术。研究发现，序列差异较大的蛋白质序列也可能折迭成类似的三维构象，自然界里的蛋白质结构骨架的多样性
+远少于蛋白质序列的多样性。由于蛋白质的折迭过程仍然不十分明了，从理论上解决蛋白质折迭的问题还有待进一步的科学发展，但也有了一些有一定作用的三
+维结构预测方法。最常见的是“同源模建”和“Threading”方法。前者先在蛋白质结构数据库中寻找未知结构蛋白的同源伙伴，再利用一定计算方法把同源蛋白的
+结构优化构建出预测的结果。后者将序列“穿”入已知的各种蛋白质的折迭子骨架内，计算出未知结构序列折迭成各种已知折迭子的可能性，由此为预测序列分配
+最合适的折迭子结构。除了“Threading”方法之外，用PSI-BLAST方法也可以把查询序列分配到合适的蛋白质折迭家族，实际应用中发现这个方法的效果也不错。
+SWISS-MODEL：自动蛋白质同源模建服务器，有两个工作模式：第一步模式(First Approach mode)和优化模式(Optimise mode)。程序先把提交的序列在
+ExPdb晶体图像数据库中搜索相似性足够高的同源序列，建立最初的原子模型，再对这个模型进行优化产生预测的结构模型。
+（http://www.expasy.ch/swissmod/SWISS-MODEL.html）
+1)	进入SWISS-MODEL( http://www.expasy.org/swissmod/SWISS-MODEL.html)三级结构预测服务器；
+2)	填写Email地址→选择First Approach mode（Alignment Interface和Project (optimise) mode自己练习）；
+3)	提交；
+4)	在http://www.expasy.org/spdbv/text/getpc.htm下载Swiss-Pdb Viewer软件；
+5)	将邮箱中返回的PDB文件用ViewerLite软件进行浏览，并以图片形式输出结果，使用Swiss-PdbViewer软件进行简单结构分析。
+ 
+ 
+自行练习：
+CPHmodels：也是利用神经网络进行同源模建预测蛋白质结构的方法。（http://www.cbs.dtu.dk/services/CPHmodels/）
+
+（四）蛋白质结构域识别（自行练习）
+1)	熟悉PROSITE(http://www.expasy.org/prosite/ )数据库，简单分析提交序列可能所属的家族和包含的生物学功能位点；
+2)	熟悉Pfam (http://www.sanger.ac.uk/Software/Pfam/ )数据库，点击主页中search by→Protein name or sequence→输入序列→
+点击retrieve按钮得到结果→查看并分析结果。
+
+（五）其它特殊局部结构（自行练习）
+其它特殊局部结构包括膜蛋白的跨膜螺旋、信号肽、卷曲螺旋(Coiled Coils)等，具有明显的序列特征和结构特征，也可以用计算方法加以预测。
+COILS：卷曲螺旋预测方法，将序列与已知的平行双链卷曲螺旋数据库进行比较，得到相似性得分，并据此算出序列形成卷曲螺旋的概率。网址是：
+http://www.ch.embnet.org/software/COILS_form.html。
+TMpred：预测蛋白质的跨膜区段和在膜上的取向，它根据来自SWISS-PROT的跨膜蛋白数据库Tmbase，利用跨膜结构区段的数量、位置以及侧翼信息
+，通过加权打分进行预测。网址是：http://www.ch.embnet.org/software/TMPRED_form.html。
+SignalP：预测蛋白质序列中信号肽的剪切位点。网址是：http://www.cbs.dtu.dk/services/SignalP/。
+
+扩展：
+#https://www.biomart.cn/experiment/1141.htm 
+##人脂联素蛋白质序列

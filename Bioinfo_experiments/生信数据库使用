@@ -1,0 +1,128 @@
+生信数据库使用示例
+一、实验目的
+1．了解NCBI、EMBL、SWISS-PROT、PDB数据库的结构。
+2．了解NCBI、EMBL数据库检索系统ENTREZ、SRS的操作方法，掌握文献、序列的快速高效检索方法
+3．熟悉GenBank数据库序列格式及其主要字段的含义；
+4．了解EBML数据库序列格式及其主要字段的含义；
+5．熟悉GenBank数据库序列格式的FASTA序列格式显示与保存；
+
+二、背景补充[1]
+分子表达相关的数据库：
+1）综合性数据库：TCGA, GEO, ICGC, Arrayexpress, Target, SRA，UCSC Xena等数据库下载基因表达矩阵，用R语言整理进行差异表达分析挑有意义的分子，
+或者直接分析目的基因的表达情况
+2）提供基因基本信息与表达检索的数据库
+①Human Protein Atlas 数据库，简称HPA数据库，网址https://www.proteinatlas.org/，提供全部24,000种人类蛋白质的组织和细胞分布信息。
+
+②Cancer Cell Line Encyclopedia 数据库，简称CCLE数据库，网址https://portals.broadinstitute.org/ccle_legacy/home，有1,457个 细胞系，涉及
+84,434个genes。包括WES数据，WGS数据，RNAseq数据，扩增子数据，可以检索specific genes的表达变化，突变，indels，拷贝数变异（copy number variation
+, CNV），甲基化等等。
+
+③Genecards 数据库，网址http://www.genecards.org/，自动整合约125个网络来源的基因的数据（包括基因组，转录组学，蛋白质组学等），提供基因的描述信
+息，功能信息，定位以及在不同组织的表达情况。
+
+④ Gene Expression Profiling Interactive Analysis数据库，简称GEPIA数据库，网址 http://gepia.cancer-pku.cn/index.html，提供了对于目的基因的
+在不同组织的表达情况，差异表达，生存分析，相关性分析等。
+
+⑤Oncomine数据库，网址https://www.oncomine.org/resource/login.html, 可用于分析基因表达差异，预测共表达基因，预测表现，根据肿瘤分期、分级、组织
+类型等临床信息进行分类等。
+
+⑥miRBase数据库，网址http://www.mirbase.org/index.shtml，该数据库中收录了来自200多个物种，接近4万个miRNA的信息，包括miRNA前体对应的基因，序列，
+茎环结构等信息，是最全面的miRNA数据库。
+
+⑦LNCipedia数据库，网址https://lncipedia.org/，是一个综合性的人类lncRNA数据库，整合了多个数据库，包括lncRNA基因ID, 转录本iD, 染色体位置，类别，
+长度等信息。
+
+⑧ CSCD数据库，网址http://gb.whu.edu.cn/CSCD/，收录了272152个肿瘤特异性的环状RNA, 会给出circRNA来源基因名称，对应的样本名称，基因的结构信息，所
+在染色体的位置等。
+
+2. 药物相关数据库
+
+1）中药成分数据库
+
+TCMSP数据库，网址http://tcmspw.com/tcmsp.php，包含了499味草药（中国药典2010版）以及每位草药的化合物成分（共计29000余个），针对每个化合物提供了
+较全面的人体吸收、分布、代谢（ADME）性质评价数据，同时提供了潜在活性分子的靶标及其疾病信息。
+
+其他可替代的中药成分网站包括SymMap, TCM-PTD, TCM-MESH, TCMID数据库。
+
+2）药物通用信息注释数据库
+
+① Pubchem数据库，网址https://pubchem.ncbi.nlm.nih.gov/，专门针对化学结构搜索的数据库，包括化合物的 2D 和 3D 结构物理性质、化学性质以及安全信息。
+更重要的是能查询到与化合物相关的文献和专利。
+
+② DrugBank数据库，网址https://www.drugbank.ca/，介绍了6000多个药物的名称、研究历史、化学结构、处方剂量、理化性质、适应症分类、药理学研究、药物
+相互作用、临床试验、相关制药公司、价格、专利号、基因或蛋白质靶标、该药物的转运蛋白等，相关的参考文献也都详细地列在旁边。
+
+③ ChEBI数据库，网址https://www.ebi.ac.uk/chebi/，是一个收录生物医学相关化学条目的数据库。
+
+
+三、实验内容及操作步骤 
+（一）登陆NCBI、EMBL、SWISS-PROT、PDB数据库主页，打开数据库的SITE MAP页面，了解各数据库的结构。
+
+1．网址：NCBI：www.ncbi.nlm.nih.gov
+2．EMBL:www.ebi.ac.uk
+3．SWISS-PROT: www.expasy.org/sprot/
+4．PDB: www.rcsb.org/pdb/ 
+ 
+（二）使用Entrez信息查询系统检索与柑橘溃疡病菌（Xanthomonas axonopodis pv. citri）或水稻白叶枯病菌（Xanthomonas oryzae pv.oryzae）相关的文献，
+或者自己感兴趣文献。
+ 
+1．调用Internet浏览器并在其地址栏输入Entrez网址(http://www.ncbi.nlm.nih.gov/Entrez)→进入NCBI主页→进入Entrez Home页面→选择pubmed文献数据库→
+在Search后的输入栏中选择Pubmed→在输入栏内输入关键词Xanthomonas axonopodis pv. citri→点击go查询。统计查询结果，并阅读感兴趣文献的摘要或全文。
+
+2．练习使用AND、OR、BUT逻辑词来限定关键词，如Xanthomonas axonopodis pv. citri AND PCR 等查询通过PCR方法检测柑橘溃疡病菌的相关记录，比较查询结
+果。
+
+3．学习使用limits等限制字段查询方式，检索与Xanthomonas axonopodis pv. citri相关的文献，并统计检索结果。比较不同检索方式的查询效率。
+1)	进入Entrez Home页面→选择Pubmed文献数据库→点击limits，进入与Pubmed有关的限制字段设置→如选择Title等不同字段，及限制期刊类型，作者等进行查询；
+2)	Preview（搜索结果预览）/Index（索引词表检索）的应用。所谓的索引词表检索是当你选定查询字段并键入检索词如Xanthomonas axonopodis pv. citri时→
+点击Index→这时返回一个在该字段中的以“Xanthomonas axonopodis pv. citri”开始的索引词表窗口，后面括弧中的数字代表包含该索引词的记录条数→选择一个或
+几个关键词，点击Preview可进行结果的预览→点击Go可获得查询结果； 
+3)	点击History，可以看到该次练习结果页面的历史记录。包括所采用的主题词、查询字段范围、花费时间、及相应结果等。
+
+4．使用Entrez信息查询系统检索与柑桔溃疡病菌或者水稻白叶枯病菌相关的核酸序列，链接提取其中一条感兴趣的序列内容，阅读序列格式的解释，理解其含义。
+1)	进入NCBI主页→进入Entrez Home页面→选择Nucleotide数据库→在Search后的输入栏中选择Nucleotide→在输入栏内输入关键词uvrA 或Xa21→点击go查询；
+2)	阅读查询结果，选择一条感兴趣的核酸序列，点击该序列与数据库的超链接，阅读序列格式的解释，理解其含义。
+
+##GenBank数据库序列格式的FASTA序列格式显示与保存；
+1)	以步骤4所获得的感兴趣核酸序列结果页面为例，在显示模式“Display”的下拉菜单中选择一个需要的序列格式如FASTA序列格式，然后点击Display按钮，结果就
+出现该序列的FASTA格式。
+2)	如果需要保存该条序列信息，可以直接通过点击浏览器IE的“文件”菜单中的另存为命令将序列保存到本地计算机；也可以利用Entrez系统自身的保存功能，即点击
+Send to，选择File,就会出现保存文件相应的窗口，然后按指示操作即可。
+
+5．使用SRS信息查询系统检索在Entrez中查询的同一条核酸序列，连接提取该序列内容，阅读序列格式的解释，理解其含义；比较NCBI与EMBL中序列格式的异同。
+调用Internet浏览器并在其地址栏输入SRS网址（www.srs.ebi.ac.uk），查询在Entrez中所查询核酸序列。
+ 
+四、作业
+1．仔细阅读所查询核酸序列在NCBI和EMBL数据库中格式的解释，理解并记录其含义。
+答: 
+       EMBL	                                 NCBI
+ID	序列简单说明	                        LOCUS	序列简单说明
+DE	序列简单描述	                        DEFINITION	序列简单描述
+AC	序列编号	                            ACCESSION	序列编号
+SV	序列版本号	                           VERSION	序列版本号
+KW	关键词	                               KEYWORDS	关键词
+OS	序列来源的物种名	                     SOURCE	序列来源的物种名
+OC	序列来源的物种学名和分类地位	          ORGANISM	序列来源的物种学名和分类地位
+RN	相关文献编号或递交序列的注册信息	       REFEENCE	相关文献编号或递交序列的注册信息
+RA	相关文献作者或递交序列的作者	          AUTHORS	相关文献作者或递交序列的作者
+RT	相关文献题目	                         TITLE	相关文献题目
+RL	相关文献刊物杂志名或递交序列的作者单位	  JOURNAL	相关文献刊物杂志名或递交序列的作者单位
+RX	相关文献Medline引文代码	               MEDLINE	相关文献Medline引文代码
+RC	相关文献注释	                         REMARK	相关文献注释
+RP	相关文献其他注释		
+CC	关于序列的注释信息	                     COMMENT	关于序列的注释信息
+DR	相关数据库交叉引用号		
+FH	序列特征表起始	                         FEATURES	序列特征表起始
+FT	序列特征表子项		
+SQ	碱基种类统计数	                         BASE COUNT	碱基种类统计数
+空格	序列	                               ORIGIN	序列
+ 
+
+2．比较NCBI与EMBL中序列格式的异同。
+答：序列本身字母格式没有差别。开头格式有所不同
+NCBI上：开头为>AB428010.1 Streptococcus mutans aroE gene for putative shikimate 5-dehydrogenase, partial cds, strain
+EMBL上：开头为>ENA|X16972|X16972.1 Drosophila melanogaster cecropin gene cluster
+
+
+参考：
+[1]#http://www.360doc.com/content/20/0530/08/68410210_915451835.shtml

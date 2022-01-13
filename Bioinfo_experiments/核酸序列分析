@@ -1,0 +1,134 @@
+#核酸序列分析
+
+一、实验目的
+1．掌握相关软件分析核酸序列分子质量、碱基组成及碱基分布等。
+2．掌握核酸序列变换的分析方法。
+3．掌握核酸序列限制性酶切分析方法。
+4．了解引物设计的基本知识。
+5．了解NCBI序列信息提交方法，学习运用Bankit进行序列提交。
+6．了解构建系统发育树的基本方法。
+
+二、实验内容及操作程序
+1．DNAMAN的安装和基本操作
+DNAMAN 是一种常用的核酸序列分析软件。由于它功能强大，使用方便，已成为一种普遍使用的DNA 序列分析工具。本文以DNAMAN version 4.0为例，简单介绍其
+使用方法。
+（1）下载、安装DNAMAN软件。
+（2）使用Entrez信息查询系统检索一条你感兴趣的序列，如cytochrome oxidase（细胞色素氧化酶）、catalse（过氧化氢酶）、H5N1（禽流感）、peroxidase
+（过氧化物酶）、SOD（Superoxide Dimutase）等部分或全长核酸序列，阅读序列注释，理解其含义；并将该序列以FASTA序列格式显示和保存。
+（3）打开DNAMAN软件，点击edit→enter sequence→粘贴序列→OK（即生成一个文件）→点击File→Save as保存该序列文件（以.seq为后缀）。
+（4）浏览该序列文件，在输出结果中Composition（碱基组成）和Percentage（碱基百分比）以及Molecular Weight（分子质量）栏目中清楚地给出了关于该条序
+列的有关结果，并记录之。
+（5）序列载入。
+（6）选择工作区左侧软件提供的Channel工具条，点击数字即可激活相应的Channel，每个Channel可存放一条序列。
+（7）从碱基计数1开始，选中该序列的所有碱基，点击Sequence→Load Sequence→From selection，即将该序列载入激活的Channel内，此时可对本序列进行分析。
+
+2．DNAMAN软件使用
+（1）序列变换
+使用DNAMAN软件可以很容易地实现序列变换，这些功能集中在Sequence→Display，根据不同的需要，从中选择不同的序列变换方式对当前Channel的序列进行转换
+（互补序列、反向序列、反向互补序列、DNA双链序列和RNA序列等）。
+ 
+对话框选项说明如下：
+Sequence &Composition 显示序列和成分
+Reverse Complement Sequence 显示待分析序列的反向互补序列
+Reverse Sequence 显示待分析序列的反向序列
+Complement Sequence 显示待分析序列的互补序列
+Double Stranded Sequence 显示待分析序列的双链序列
+RNA Sequence 显示待分析序列的对应RNA 序列
+
+（2）限制性酶切分析
+限制性酶切分析是分子生物学实验中的日常工作之一，DNAMAN软件的Restriction便具有该功能。
+1）点击Restriction/Restriction Analysis，选择其中一些参数，可分析当前Channel序列酶切位点。
+  
+Results分析结果显示：Show summary（显示概要）；Show sites on sequence（在结果中显示酶切位点）；Draw restriction map（显示限制性酶切图）Draw 
+restriction pattern（显示限制性酶切模式图）；Ignore enzymes with more than（忽略大于某设定值的酶切位点）；Ignore enzymes with less than
+（忽略小于某设定值的酶切位点）。
+Target DNA（目标DNA 特性）：circular（环型DNA），dam/dcm methylation（dam/dcm甲基化）；all DNA in Sequence Channel（选择此项，在Sequence 
+Channel 中的所有序列将被分析，如果选择了Draw restriction pattern，那么当所有的channel 中共有两条DNA 时，则只能选择两个酶分析，如果共有三个以
+上DNA 时，则只能用一个酶分析。
+2）选择所需的项目，然后按提示操作点击<下一步>按扭：
+ 
+参数说明如下：
+Enzyme：代表（enzyme data file），点击旁边的下拉按钮，出现两个默认选项，restrict.enz 和dnamane.enz，如果添加过自制的酶列表，则附加显示自制酶列
+表文件名。其中restrict.enz 数据文件包含180 种限制酶，dnamane.enz 数据文件包含2524 种限制酶。选择其中一个数据文件，相应的酶在左边的显示框中列出
+（按酶名称字母表顺序），鼠标双击酶名称，则对应的酶被选中，在右边空白框中列出。要自制酶切列表，可以从左边酶列表中双击鼠标选择多种酶（例如puc18 
+multiple cloning sites），然后点击<Save list>按钮：
+ 
+输入要保存酶列表的文件名，点击<OK>按钮即可保存。自制酶列表可以方便分析特定的酶切位点。
+    Cutter：酶切识别序列长度。
+End：酶切产生的末端，其中包括Blunt（平头末端）、5’Overhang（5’突出粘性末端）、3’Overhang(3’突出粘性末端)，系统根据cutter和end的设定情况,在左边
+酶列表中显示符合条件的酶。
+3）最后，点击按钮执行操作。
+
+（3）引物设计
+1）将目标DNA 片段装入Channel，并激活Channel。
+2）点击主菜单栏中的Primer主菜单，出现下拉菜单。 
+3）点击Design PCR Primers for DNA 命令。：
+
+参数说明如下：
+Primer locations on target 引物定位：Product size（扩增目的片段大小）；Sense primer (正向引物选择区)；Antisense primer(反向引物选择区)。
+Primer引物特性包括：Length（引物长度），Tm值, GC含量等参数。
+Reject primer 引物过滤（将符合引物过滤条件的引物过滤掉）：3’dimer（可形成3’端自我互补的碱基数）；Hairpin stem（可形成发卡颈环结构的碱基数）；
+PolyN（多聚碱基）；3’Uique（3’端严格配对碱基数）；Primer-Primer（含义未知）；All matches（引物互补配对百分数）。
+Consentrations：浓度设定。
+Product for hybridyzat（ion）：PCR 产物用于Southern Blot探针杂交。
+4）点击<下一步>按钮：
+5）选择需要的选项，点击<下一步>按钮：
+6）点击<下一步>按钮，完成操作。
+ 
+
+3．序列递交
+测序工作者可以把自己工作中获得的新序列提交给NCBI，添加到Genbank数据库。这个任务可以由基于Web界面的BankIt或独立程序Sequin来完成。
+BankIt：是一系列表单，包括联络信息、发布要求、引用参考信息、序列来源信息以及序列本身的信息等。用户提交序列后，会从电子邮件收到自动生成的数据条目
+、Genbank的新序列编号以及完成注释后的完整的数据记录。用户还可以在BankIt页面下修改已经发布序列的信息。BankIt适合于独立测序工作者提交少量序列，而
+不适合大量序列的提交，也不适合提交很长的序列，EST序列和GSS序列也不应用BankIt提交。BankIt使用说明和对序列的要求可详见其主页面。
+Sequin：大量的序列提交可以由Sequin程序完成。Sequin程序能方便的编辑和处理复杂注释，并包含一系列内建的检查函数来提高序列的质量保证。它还被设计用于
+提交来自系统进化、种群和突变研究的序列，可以加入比对的数据。Sequin除了用于编辑和修改序列数据记录，还可以用于序列的分析，任何以FASTA或ASN.1格式序
+列为输入数据的序列分析程序都可以整合到Sequin程序下。在不同操作系统下运行的Sequin程序都可以在ftp://ncbi.nlm.nih.gov/sequin/下找到，Sequin的使
+用说明可详见其网页。
+熟悉Bankit，了解在线序列提交方法。
+ 
+
+4．序列同源性分析及构建系统发育树
+（1）两序列同源性分析
+通过Sequence→Two Sequence Alignment 命令打开对话框，如下所示：
+ 
+参数说明如下：Alignment method比对方法，通常可选Quick（快速比对）或Smith&Waterman（最佳比对），当选择快速比对时，设置较小的k-tuple 值，可以提高
+精确度，当序列较长时，一般要设置较大的k-tuple 值。（DNA序列：k-tuple 值可选范围2—6；蛋白质序列：k-tuple 值可选范围1—3。
+    其它参数说明从略。
+（2）多序列同源性分析
+1）通过打开Sequence→Alignment→Multiple sequence alignment命令打开对话框。如下所示：
+ 
+ 
+ 
+参数说明如下：File：从文件中选择参加比对的序列。
+                  Folder：从文件夹中选择参加比对的序列。
+                  Channel：从channel 中选择参加比对的序列。
+                  Dbase：从数据库中选择参加比对的序列。
+                  Remove：清除选择的序列（鼠标点击左边显示框中的序列名选择）。
+                  Clear：清除全部序列。
+2）点击按钮，出现方法选择对话框。
+3）选择其中一种方法，点击<下一步>按钮。
+ 
+ 
+4）如果在前一对话框选择的是Fast alignment，则在此对话框中选择Quick alignment，否则选择Dynamic alignment即可。其它参数不必改变，点击对话框中间
+的<Default Parameters>使其它参数取原始默认值。
+5）点击<下一步>按钮。
+6）点击对话框中间的<Default Parameters>，然后点击<完成>执行操作。
+
+7）点击左上角<Options>按钮，可以从弹出的对话框中选择不同的结果显示特性选项。点击<Options>按钮下的按钮，出现下列选择项：
+#Sequence File
+#Tree
+#Graphic(EMF)File
+#Restriction Analysis
+#Protein Secondar Structure
+#Hydrophobicity
+#Hydrophilicity
+#Re-Align All Sequences
+#Transmembrane Protein Analysis
+
+8）可以通过这些选项，绘制同源关系图（例如Tree/homology tree命令）、显示蛋白质二级结构（Protein Secondary Structure命令）、绘制限制性酶切图
+（Restriction Analysis命令）等。
+
+参考：
+#[1]https://www.plob.org/article/3900.html
+
